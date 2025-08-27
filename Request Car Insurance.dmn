@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_RequestCarInsurance" name="Request Car Insurance" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="a71ebc4" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="Decision_DetermineRisk" name="Determine Risk">
+    <informationRequirement id="InformationRequirement_1vujj6p">
+      <requiredInput href="#experience" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_19tjtrz" hitPolicy="FIRST">
+      <input id="Input_1" label="Experience">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>experience</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1x16l1h" label="Car Type">
+        <inputExpression id="LiteralExpression_1ewp2t1" typeRef="string">
+          <text>carType</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_132xxnx">
+          <text>"small","family","luxury"</text>
+        </inputValues>
+      </input>
+      <output id="Output_1" label="Code" name="code" typeRef="string">
+        <outputValues id="UnaryTests_1v7622d">
+          <text>"red","yellow","green"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_0dwwaa5" label="Description" name="description" typeRef="string" />
+      <rule id="DecisionRule_0q7dm3g">
+        <inputEntry id="UnaryTests_171jmbd">
+          <text>&lt;=2.0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15nrrba">
+          <text>"family","luxury"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06a3nc1">
+          <text>"red"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0931zx3">
+          <text>"Too Risky"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w36ueg">
+        <description></description>
+        <inputEntry id="UnaryTests_1pyiuha">
+          <text>]2.0 .. 3.0]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09ydwa1">
+          <text>"small"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ys0ef8">
+          <text>"green"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14srcmg">
+          <text>"Small Car, No Risk"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rznghq">
+        <inputEntry id="UnaryTests_0i6x4bu">
+          <text>&gt;3.0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1beke0y">
+          <text>"family","luxury"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e82a0i">
+          <text>"green"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05zadjd">
+          <text>"Experienced Driver, No Risk"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_026uu5x">
+        <description>Determine Risk Manually</description>
+        <inputEntry id="UnaryTests_1wxkecp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bo37pc">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rdz7ao">
+          <text>"yellow"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05ohvch">
+          <text>"Manual Determination"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="experience" name="Experience" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_DetermineRisk">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0hcgu64" dmnElementRef="experience">
+        <dc:Bounds height="45" width="125" x="187" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1q5wwy1" dmnElementRef="InformationRequirement_1vujj6p">
+        <di:waypoint x="250" y="337" />
+        <di:waypoint x="250" y="200" />
+        <di:waypoint x="250" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

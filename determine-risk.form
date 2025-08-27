@@ -1,0 +1,57 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "03a64e4"
+  },
+  "schemaVersion": 19,
+  "id": "Form_1mntr1v",
+  "components": [
+    {
+      "label": "Driver's Experience",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0djyznt",
+        "columns": null
+      },
+      "id": "Field_039z8yp",
+      "key": "textfield_tyf16h",
+      "description": "Driver's Experience In Years",
+      "readonly": true
+    },
+    {
+      "label": "Car Type",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0gzyr39",
+        "columns": null
+      },
+      "id": "Field_0v4kgs0",
+      "key": "carType",
+      "description": "Driver's car Type",
+      "readonly": true
+    },
+    {
+      "label": "Approve Policy",
+      "values": [
+        {
+          "label": "Yes",
+          "value": "yes"
+        },
+        {
+          "label": "No",
+          "value": "no"
+        }
+      ],
+      "type": "radio",
+      "layout": {
+        "row": "Row_00i616x",
+        "columns": null
+      },
+      "id": "Field_1ht4cqu",
+      "key": "radio_42ud4p"
+    }
+  ],
+  "type": "default"
+}
